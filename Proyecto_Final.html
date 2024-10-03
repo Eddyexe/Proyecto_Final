@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea</title>
+    <style>
+         *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-color: black;
+        }
+        header{
+            text-align: center;
+            display: column;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(0, 0, 0);
+            padding: 12px;
+        } 
+
+        .menud {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .menud:hover{
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgb(252, 252, 252);
+        }
+        .menud a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            display: block;
+            font-size: 18px;
+        }
+        /* Menú desplegable */
+        .menu {
+            display: none;
+            position: absolute;
+            color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .menu a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: black;
+            color: rgb(255, 255, 255);
+        }
+        .menu a:hover {
+            border-radius: 5px;
+            transform: scale(0.9);
+            box-shadow: 0 0 15px rgb(255, 213, 0);
+        }
+        /* Mostrar el menú al hacer hover */
+        .menud:hover .menu {
+            display: block;
+            opacity: 1;
+        }
+        #redes {
+            display: flex;
+            gap: 25px; 
+        }
+        #redes img{
+            border-radius: 5px;
+        }
+        #redes img:hover{
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgb(252, 252, 252);
+        }
+        #inicio a{
+            text-align: center;
+            padding: 1vh;
+            font-size: 4vh;
+            color: rgb(255, 255, 255);
+            background-color: rgb(0, 0, 0);
+            border-radius: 5px;
+            text-decoration: none;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        #inicio a:hover{
+            color:rgb(255, 0, 0);
+        }
+        .carrusel {
+            width: 500;
+            height: 450;
+            overflow: hidden;
+            position: center;
+            align-items: center;
+        }
+        .imagenes{
+            display: flex;
+            width: 300;
+            height: 250;
+            animation: slide 20s infinite;
+        }
+        .imagenes img{
+            border-radius: 5px;
+            width: 10;
+        }
+        h1 {
+            left: 0;
+            position: absolute;
+            font-size: 60px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            animation: moveText 15s linear infinite;
+            color: rgb(255, 255, 255);
+        }
+
+        @keyframes moveText {
+            0% {
+                left: 0; /* Inicia desde la izquierda */
+            }
+            50% {
+                left: 90%; /* Regresa a la izquierda */
+            }
+        
+        }
+
+        h2{
+            background-image: url(https://eoimages.gsfc.nasa.gov/images/imagerecords/76000/76740/ISS030-E-6082_lrg.jpg) ;
+            padding: 3vh;
+            border: solid ;
+            background-size: 100%;
+            color: white;
+            border-radius: 3vh;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        h2:hover{
+            color: rgb(255, 174, 0);   
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgb(252, 252, 252);
+        }
+        #caja1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 2px solid black; 
+            padding: 10vw;
+            color: white;
+            margin: 50px; 
+            border-radius: 5vh;
+            background-image: url(https://www.nasa.gov/wp-content/uploads/2020/07/50097912597_e9be3e0a4f_k.jpg);
+            background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        #caja1 a{
+            text-decoration: none;
+            color: rgb(0, 0, 255);
+        }
+        #caja2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            margin: 50px; 
+            border-radius: 5vh;
+            color: white;
+            background-image: url(https://images.unsplash.com/photo-1614727187346-ec3a009092b0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MTV8fHxlbnwwfHx8fHw%3D);
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat; 
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #caja3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center; 
+            padding: 10px;
+            margin: 50px; 
+            border-radius: 5vh;
+            background-image: url(https://www.nasa.gov/wp-content/uploads/2023/07/iss069e018537-1.jpg?w=2048);
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #caja4 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            margin: 50px; 
+            border-radius: 5vh;
+            color: rgb(255, 255, 255);
+            background-image: url(https://www.nasa.gov/wp-content/uploads/2023/03/astro-selfie.jpeg);
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #caja5 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            margin: 50px; 
+            border-radius: 5vh;
+            background-image: url(https://wallpapercrafter.com/desktop4/1175499-image-HD-nasa-Satellite-space-720P.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #inicio{
+            text-align: end;
+            margin-top: 20px;
+        }
+
+        #inicio a{
+            border: solid 3px white;
+            
+        }
+
+        .contenido img {
+            align-self: flex-start;
+        }
+
+        iframe {
+            margin-top: 15px;
+            display: block;
+            align-self: center;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0%); }
+            33% { transform: translateX(-150%); }
+            66% { transform: translateX(-225%); }
+            100% { transform: translateX(0); }
+        }
+        
+        footer{
+            background-color: rgb(0, 0, 0);
+            color: white;
+            text-align: center;
+            padding: 4px ;
+            width: 100%;
+            text-decoration: none;
+            
+        }
+        #iconos{
+            gap: 15px;
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+        }
+        #iconos img{
+            border-radius: 5px;
+        }
+        .contenido {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #ffffff;
+            text-align: center; 
+        }
+        
+        #titulo{
+            padding: 60px;
+        }
+        .uno{
+            border: solid 5px rgb(255, 255, 255);
+            border-radius: 10px;
+            width: 49vh;
+            height: 35vh; 
+        }
+        .uno:hover{
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgb(251, 251, 251);
+        }
+        .dos{
+            border: solid 5px rgb(255, 255, 255);
+            padding: 75px ;
+            border-radius: 10px;
+            color: rgb(255, 255, 255);
+            background-color: rgba(0, 0, 0, 0.393);
+            width: 20vh;
+            height: 20vh;
+
+        }
+        .dos:hover{
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgb(255, 255, 255);
+        }
+        .tres{
+            border: solid 5px rgb(255, 255, 255);
+            padding: 75px ;
+            border-radius: 10px;
+            background-color: black;
+        } 
+        .tres a{
+            text-decoration: none;
+            background-image: url(https://wallpapercave.com/wp/qx0A2ce.jpg) ;
+            padding: 3vh;
+            border: solid ;
+            background-size: 100%;
+            color: white;
+            border-radius: 3vh;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+        }
+        .tres:hover{
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgb(255, 255, 255);
+            color: blue;
+        }
+        .tres a:hover{
+            color: red;
+        }
+        .cuatro{
+            border: solid 5px white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <section id="menus" class="menus"></section>
+        <nav>
+            <div class="menud">
+                <a href="#menu">Menú</a>
+                <div class="menu">
+                    <a href="#mision">MISION</a>
+                    <a href="#humanos">HUMANOS</a>
+                    <a href="#sistema">SISTEMA SOLAR</a>
+                    <a href="#universo">UNIVERSO</a>
+                    <a href="#ciencia">CIENCIA</a>
+                </div>
+            </div>
+            
+            <img src="https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg" alt="nasa icono" width="60">
+            
+            <div id="redes">
+                <a href="https://www.facebook.com/NASA" target="_blank">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAbFBMVEUAAAD///8zMzPCwsKcnJxwcHApKSn7+/vq6urv7++QkJCDg4MgICDZ2dmlpaVOTk60tLR6enrj4+OXl5eqqqoRERFSUlJERES6uroaGhrU1NTIyMgLCwvOzs4/Pz9zc3OKioovLy9nZ2dfX19Z3TgEAAAEbklEQVR4nO3d6XaiQBCG4UZFRARxiRqXJGbu/x4HF+IGNtJ8VhWn3p9zTkI9J4nICN3GKylOh/5i2ZHQcuEP07gMYor+MUzGRl7jJKwo7ErknRp3KwhXn9RjOvW5sgjjDvWIznXiZ8KIerxGikqF4Z56tobqh8XCNfVgDbYuEnapp2q07qOwXcArYi5s06/oqd2tcEA9D6DBjXBEPQ6g0bVwQj0NpMlF2L4/wlPrP2Ebf0cPjXJhSj0JrPlZSD0HsJNwRT0GsPQolH/BVF7nIJxSTwFtmgln1ENAG2bCtlwUFtf3TEA9A7jQbKhHALcxPeoRwPVMO990X5qYBfUI4Bamzef7Q32zpR5B0zRN0zRN0zRNq9x2286ruK9J0o1vb0YLgsE03m3SZBb5iz71gE6Ne2uvQr/Uc9ZsnAZVeFk+9ai1+hlU5AkVzqr++IQKJy/55AlHpfcqt0Q4edUnTfhw+27bhC//hkoTvnCKkCmsBxQknNYDyhFuagLFCId1gVKEX7WBUoSFzyO1SdirD5Qh3DoAZQjrvFkTJRy5AEUI09YLnYAShPVP9lKEdd+QihHu3YAChLPWC2td2IsSOgK9b2qArX8vcYIwb3AuZP+5RdU33cEqErrOwc6Oy4rZ/6TKq3RlyP5v7VlVgKIf+OhUAH5RD+nUrx0o/GmIyC6kHtEx+3u2OfWIjs2tQumPe9iv76kndK1gUaPbxD/eaRWKf3LOKhT/oLxVmFBP6JpVKPx8r0IVSkiFKuSfClXIPxWqkH8qVCH/VKhC/qlQhvBj3y/rw3p7d/JZ+sWH9iyeLP22KVxi8RSpjxRS444hhSE17hhSyGOBY6SQx+KxSCGPkwlSyGPJQ6SQx51gSCG17ZQKHWKyYwNQuKO2nQIKmXzKDxQOqW2ngEImt7EDhUxuzAQKqWnncEIui6njhFxuesMJudz0hhNyubsWJ/yhpp3DCbk8Z4ITclkuHiekluXBhDz+K9EAhTG1LA8mZLPnJEzI5g5pmJDN1r0w4T9qWZ7vBaXZGU++VsSehdaFW8RvGNaOT7mfpUIV8k+FKuSfClXIPxWqkH8qVCH/VKhC/qlQhfxToQr5p0IV8k+FKuSfClXIPxWqkH8qVCH/VKhC/qlQhfxToQr5p8K3CKFrTbEQQteaYiAcGegCKQyEYwPdToqB0DfQJx4YCGcG+oQYA2HXQNeAYSAcGA95umAg9Az0ITh6YZQJkeva0Qt3mdD7wH1/cuHWOwiBRyEX9o5C4CIp5MLgKAQux0QtPGwKftxHE3YEaqGXC2GrhhEL0z8hbBdCWuHYuwhRLza0wuBKiFq/j1R43m0537EXs2IRpTDxboWYUwah8Cc/xGXXZQSRTvgHvBIi1hIhEyaXQ1zvnN38yw2V8Ho9/5u9wcNlw0eiES5vdnS/2/284ZdUEuHdNsv3+7sHjV7yEwij+yVjHnewDxp8UX27cBg+HOJRmNVtavHX9wr9wsMVCrPiNFq4L/LzLuFoEc3jkkP8Bw75PNEWxiuhAAAAAElFTkSuQmCC" alt="facebook" width="30" height="30" >
+                </a>
+                <a href="https://x.com/NASA" target="_blank">
+                    <img src="https://img.freepik.com/vector-gratis/nuevo-diseno-icono-x-logotipo-twitter-2023_1017-45418.jpg?size=338&ext=jpg&ga=GA1.1.386372595.1727222400&semt=ais_hybrid" alt="" width="30" height="30">
+                </a>
+                <a href="https://www.instagram.com/nasa/" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Instagram_logo.png/1200px-Instagram_logo.png" alt="" width="30" height="30">
+                </a>
+            </div>
+        </nav>
+        
+        <div class="carrusel">
+            <div class="imagenes">
+                <img src="https://spaceplace.nasa.gov/gallery-space/sp/NGC2336-galaxy.en.jpg" alt="f5">
+                <img src="https://mundogeo.com/wp-content/uploads/2024/06/26103240/La-NASA-lanza-el-nuevo-sat%C3%A9lite-GOES-U-a-bordo-del-cohete-SpaceX.jpg" alt="f2" width="650">
+                <img src="https://www.nasa.gov/wp-content/uploads/2023/04/jsc2023e016432_alt4_0.jpg" alt="f3" width="650">
+                <img src="https://www.nasa.gov/wp-content/uploads/2019/11/solar-system-artist-concept.jpg?w=2048" alt="f4" width="650" >
+                <img src="https://spaceplace.nasa.gov/gallery-space/sp/NGC2336-galaxy.en.jpg" alt="f5" width="750">
+                <img src="https://actualidadaeroespacial.com/wp-content/uploads/2024/04/La-Nasa-lanzara-la-nave-espacial-Europa-Clipper-en-octubre-150424.jpg" alt="f6">
+            </div>
+        </div>
+    </header>
+    
+    <h1>NASA</h1>
+
+    <br>
+    <br>
+    <!-- mision -->
+    <section id="mision" class="mision">
+        <div id="total">
+            <div id="caja1">
+                <h2>MISION</h2>
+                <br>
+                <div class="contenido">
+                    <div class="dos">    
+                        <p>Exploring the secrets of the universe for the benefit of all. NASA investigates the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery. </p>
+                    </div>
+                    <div class="uno">
+                        <iframe width="360" height="240"  src="https://www.youtube.com/embed/SmXJKqRZGnQ?si=lPJW4AvhYih50wEk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    
+            
+                </div>
+                <div id="inicio">
+                    <a href="#menus">Menu</a>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </section>
+    
+    <!-- HUMANOS -->
+    <section id="humanos" class="humanos">
+        <div id="total">
+            <div id="caja2">
+                <h2>HUMANOS EN EL ESPACIO</h2>
+                <br>
+                <div class="contenido">
+                    <div class="uno">
+                        <iframe width="365" height="250" src="https://www.nasa.gov/humans-in-space/" frameborder="0"></iframe>
+                    </div>
+                    <div class="dos">    
+                        <p>With more than 20 years of operations in low Earth orbit, we are preparing our return to the Moon for long-term exploration and discovery before taking the next giant leap to Mars.</p>
+                    </div>
+                </div>
+                <div id="inicio">
+                    <a href="#menus">Menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SISTEMA -->
+    <section id="sistema" class="sistema">
+        <div id="total">
+            <div id="caja3">
+                <h2>SISTEMA SOLAR</h2>
+                <br>
+                <div class="contenido">
+                    <div class="tres">
+                        <p>Haz clic en el enlace para descargar el archivo:</p>
+                        <br>
+                        <br>
+                        <a href="EddyXC.html" download="EddyXC">Descargar Archivo</a>
+                    </div>
+                    <div class="cuatro">    
+                        <iframe src="https://eddyexe.github.io/Proyecto_Final/EddyXC.html" frameborder="0" width="500 " height="675 " ></iframe>
+                    </div>
+                </div>
+                <div id="inicio">
+                    <a href="#menus">Menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- UNIVERSO -->
+    <section id="universo" class="universo">
+        <div id="total">
+            <div id="caja4">
+                <h2>EL UNIVERSO</h2>
+                <br>
+                <div class="contenido">
+                    <div class="cuatro">
+                        <iframe src="https://docs.google.com/spreadsheets/d/1wTVDTahreQg44hV2K5TIWIhxJFoYwLLam5wKJW0NFSQ/edit?usp=sharing" frameborder="0" width="450" height="450"></iframe>
+                    </div>
+                    <div class="dos">    
+                        <p>Galaxies consist of stars, planets, and vast clouds of gas and dust, all bound together by gravity. <br> The largest contain trillions of stars and can be more than a million light-years across.</p>
+                    </div>
+                </div>
+                <div id="inicio">
+                    <a href="#menus">Menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CIENCIA -->
+
+    <section id="ciencia" class="ciencia">
+        <div id="total">
+            <div id="caja5">
+                <h2>CIENCIA</h2>
+                <br>
+                <div class="contenido">
+                    <div class="cuatro">
+                        <img src="https://s0.smartresize.com/wallpaper/849/249/HD-wallpaper-man-on-moon-astronaut-blue-drawings-earth-green-man-moon-space-stars-thumbnail.jpg" alt="economia" width="250" height="300" >
+                    </div>
+                    <div class="dos">    
+                        <p>NASA Science seeks to discover the secrets of the universe, search for life <br>
+                             elsewhere, and protect and improve life on Earth and in space.</p>
+                    </div>
+                </div>
+                <div id="inicio">
+                    <a href="#menus">Menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>   
+        <div id="iconos">
+            <a href="https://www.facebook.com/NASA" target="_blank">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAbFBMVEUAAAD///8zMzPCwsKcnJxwcHApKSn7+/vq6urv7++QkJCDg4MgICDZ2dmlpaVOTk60tLR6enrj4+OXl5eqqqoRERFSUlJERES6uroaGhrU1NTIyMgLCwvOzs4/Pz9zc3OKioovLy9nZ2dfX19Z3TgEAAAEbklEQVR4nO3d6XaiQBCG4UZFRARxiRqXJGbu/x4HF+IGNtJ8VhWn3p9zTkI9J4nICN3GKylOh/5i2ZHQcuEP07gMYor+MUzGRl7jJKwo7ErknRp3KwhXn9RjOvW5sgjjDvWIznXiZ8KIerxGikqF4Z56tobqh8XCNfVgDbYuEnapp2q07qOwXcArYi5s06/oqd2tcEA9D6DBjXBEPQ6g0bVwQj0NpMlF2L4/wlPrP2Ebf0cPjXJhSj0JrPlZSD0HsJNwRT0GsPQolH/BVF7nIJxSTwFtmgln1ENAG2bCtlwUFtf3TEA9A7jQbKhHALcxPeoRwPVMO990X5qYBfUI4Bamzef7Q32zpR5B0zRN0zRN0zRNq9x2286ruK9J0o1vb0YLgsE03m3SZBb5iz71gE6Ne2uvQr/Uc9ZsnAZVeFk+9ai1+hlU5AkVzqr++IQKJy/55AlHpfcqt0Q4edUnTfhw+27bhC//hkoTvnCKkCmsBxQknNYDyhFuagLFCId1gVKEX7WBUoSFzyO1SdirD5Qh3DoAZQjrvFkTJRy5AEUI09YLnYAShPVP9lKEdd+QihHu3YAChLPWC2td2IsSOgK9b2qArX8vcYIwb3AuZP+5RdU33cEqErrOwc6Oy4rZ/6TKq3RlyP5v7VlVgKIf+OhUAH5RD+nUrx0o/GmIyC6kHtEx+3u2OfWIjs2tQumPe9iv76kndK1gUaPbxD/eaRWKf3LOKhT/oLxVmFBP6JpVKPx8r0IVSkiFKuSfClXIPxWqkH8qVCH/VKhC/qlQhvBj3y/rw3p7d/JZ+sWH9iyeLP22KVxi8RSpjxRS444hhSE17hhSyGOBY6SQx+KxSCGPkwlSyGPJQ6SQx51gSCG17ZQKHWKyYwNQuKO2nQIKmXzKDxQOqW2ngEImt7EDhUxuzAQKqWnncEIui6njhFxuesMJudz0hhNyubsWJ/yhpp3DCbk8Z4ITclkuHiekluXBhDz+K9EAhTG1LA8mZLPnJEzI5g5pmJDN1r0w4T9qWZ7vBaXZGU++VsSehdaFW8RvGNaOT7mfpUIV8k+FKuSfClXIPxWqkH8qVCH/VKhC/qlQhfxToQr5p0IV8k+FKuSfClXIPxWqkH8qVCH/VKhC/qlQhfxToQr5p8K3CKFrTbEQQteaYiAcGegCKQyEYwPdToqB0DfQJx4YCGcG+oQYA2HXQNeAYSAcGA95umAg9Az0ITh6YZQJkeva0Qt3mdD7wH1/cuHWOwiBRyEX9o5C4CIp5MLgKAQux0QtPGwKftxHE3YEaqGXC2GrhhEL0z8hbBdCWuHYuwhRLza0wuBKiFq/j1R43m0537EXs2IRpTDxboWYUwah8Cc/xGXXZQSRTvgHvBIi1hIhEyaXQ1zvnN38yw2V8Ho9/5u9wcNlw0eiES5vdnS/2/284ZdUEuHdNsv3+7sHjV7yEwij+yVjHnewDxp8UX27cBg+HOJRmNVtavHX9wr9wsMVCrPiNFq4L/LzLuFoEc3jkkP8Bw75PNEWxiuhAAAAAElFTkSuQmCC" alt="facebook" width="30" height="30" >
+            </a>
+            <a href="https://x.com/NASA" target="_blank">
+                <img src="https://img.freepik.com/vector-gratis/nuevo-diseno-icono-x-logotipo-twitter-2023_1017-45418.jpg?size=338&ext=jpg&ga=GA1.1.386372595.1727222400&semt=ais_hybrid" alt="" width="30" height="30">
+            </a>
+            <a href="https://www.instagram.com/nasa/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Instagram_logo.png/1200px-Instagram_logo.png" alt="" width="30" height="30">
+            </a>
+            <a href="https://www.youtube.com/@NASA" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR_f-4jPU5dM6OyY2lTdX7xqG3CgddhxHtON7eUlLQjpBVkaR_NFpds2T9I0XH2MlUAvc&usqp=CAU" alt="" width="30" height="30">
+            </a>
+            <a href="https://www.nasa.gov/" target="_blank">
+                <img src="https://wallpapers.com/images/hd/n-a-s-a-logo-vector-jbel9ya1s574w0sz.png" alt="" width="35" height="30">
+            </a>
+        </div>
+        <p>DERECHOS RESERVADOS ©. NASA</p>
+    </footer>
+</body>
+</html>
